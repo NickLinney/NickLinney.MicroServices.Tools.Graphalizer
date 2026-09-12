@@ -16,7 +16,9 @@ services:
       - /tmp:rw,nosuid,nodev,size=2g
     shm_size: 2g
     mem_limit: 12g
+    memswap_limit: 12g
     cpus: 8
+    pids_limit: 256
 
   test:
     profiles:
@@ -35,4 +37,6 @@ services:
       - /tmp:rw,nosuid,nodev,size=2g
     shm_size: 2g
     mem_limit: 12g
+    memswap_limit: 12g
     cpus: 8
+    pids_limit: 256

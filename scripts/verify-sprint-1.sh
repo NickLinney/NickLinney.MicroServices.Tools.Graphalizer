@@ -12,5 +12,7 @@ docker run --rm \
   --tmpfs /tmp:rw,nosuid,nodev,size=2g \
   --shm-size 2g \
   --memory 12g \
+  --memory-swap 12g \
   --cpus 8 \
+  --pids-limit 256 \
   "$IMAGE"
