@@ -3,6 +3,7 @@ FROM debian:13-slim@sha256:d7e12182ce18b85b93007c1dedf31f2d29e01ccf3182cc4017c70
 ARG PLANTUML_VERSION=1.2026.8
 ARG PLANTUML_SHA256=5e1ecfa8ecd32c90b03bbf3b1eb6f020943f98ab0fcf4032be31a0002ee2c462
 ARG MERMAID_CLI_VERSION=11.16.0
+ARG PUPPETEER_VERSION=24.31.0
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONDONTWRITEBYTECODE=1 \
@@ -36,7 +37,9 @@ RUN apt-get update \
         "https://github.com/plantuml/plantuml/releases/download/v${PLANTUML_VERSION}/plantuml-${PLANTUML_VERSION}.jar" \
         --output /opt/plantuml/plantuml.jar \
     && echo "${PLANTUML_SHA256}  /opt/plantuml/plantuml.jar" | sha256sum --check --strict \
-    && npm install --global --omit=dev "@mermaid-js/mermaid-cli@${MERMAID_CLI_VERSION}" \
+    && npm install --global --omit=dev \
+        "@mermaid-js/mermaid-cli@${MERMAID_CLI_VERSION}" \
+        "puppeteer@${PUPPETEER_VERSION}" \
     && npm cache clean --force \
     && apt-get purge -y --auto-remove curl npm \
     && rm -rf /var/lib/apt/lists/* /root/.npm \

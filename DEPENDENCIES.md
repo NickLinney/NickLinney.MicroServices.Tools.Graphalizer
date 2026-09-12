@@ -7,8 +7,11 @@
 | Debian | `13-slim@sha256:d7e12182ce18b85b93007c1dedf31f2d29e01ccf3182cc4017c709b6259bc132` | Docker Hub content digest resolved 2026-09-12 | Runtime base |
 | PlantUML | `1.2026.8` | Release JAR SHA-256 `5e1ecfa8ecd32c90b03bbf3b1eb6f020943f98ab0fcf4032be31a0002ee2c462` | PlantUML SVG rendering |
 | Mermaid CLI | `11.16.0` | Exact npm package version | Mermaid SVG rendering |
+| Puppeteer | `24.31.0` | Exact npm package version | Node 20-compatible Chromium control for Mermaid CLI |
 
 PlantUML version and checksum come from the official GitHub release. Mermaid CLI version comes from the official project release. The build must fail if the PlantUML checksum differs.
+
+Mermaid CLI permits Puppeteer 23, 24, or 25. Puppeteer 25 requires Node 22.12 or later, while Debian 13 supplies Node 20. The explicit Puppeteer 24.31.0 pin prevents npm from resolving the incompatible Puppeteer 25 peer dependency and supports Node 18 or later.
 
 ## Debian-provided runtime dependencies
 
