@@ -1,0 +1,9 @@
+[project]
+name = "nicklinney-graphalizer"
+version = "0.0.0.dev0"
+description = "Docker-first Mermaid and PlantUML artifact rendering pipeline"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.graphalizer]
+release-target = "0.0.0-pre-alpha.1"

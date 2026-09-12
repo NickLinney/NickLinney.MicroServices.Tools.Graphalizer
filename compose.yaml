@@ -1,0 +1,38 @@
+name: nicklinney-graphalizer
+
+services:
+  graphalizer:
+    build:
+      context: .
+      target: runtime
+    image: nicklinney/graphalizer:0.0.0-dev
+    read_only: true
+    network_mode: none
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,size=2g
+    shm_size: 2g
+    mem_limit: 12g
+    cpus: 8
+
+  test:
+    profiles:
+      - test
+    build:
+      context: .
+      target: test
+    image: nicklinney/graphalizer-test:0.0.0-dev
+    read_only: true
+    network_mode: none
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,size=2g
+    shm_size: 2g
+    mem_limit: 12g
+    cpus: 8
