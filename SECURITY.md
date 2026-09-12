@@ -16,4 +16,6 @@ The checked Puppeteer configuration requests Chromium `--no-sandbox` and `--disa
 
 Do not put credentials, private keys, PAT files, or confidential large fixtures inside this repository, build context, image, logs, or evidence artifacts.
 
+Renderer diagnostics can echo source lines and must be treated as potentially sensitive. Do not retain raw diagnostics in evidence for private inputs; redact them before sharing. Diagnostic sanitization is required before private-fixture or API scope is admitted.
+
 The Sprint 1 slice does not claim untrusted-input, public-network, multi-tenant, denial-of-service, crash-safe persistence, or remote-include acceptance.
